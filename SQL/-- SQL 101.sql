@@ -19,3 +19,12 @@ FROM table;
 -- PostreSQL -  free and open source (relational DB)
 -- SQL server -   free and enterprise (microsoft made it) - queried with T-SQL
 
+-- Returns the number of distinct values in field_x and the number of values populated (non-null) in field y
+
+SELECT COUNT(DISTINCT field_x) AS name_x, COUNT(field_y) AS name_y
+FROM table;
+
+-- Returns the number of rows in the table
+
+SELECT COUNT(*)
+FROM table;
