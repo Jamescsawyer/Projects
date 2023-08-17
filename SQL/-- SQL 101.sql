@@ -28,3 +28,15 @@ FROM table;
 
 SELECT COUNT(*)
 FROM table;
+
+
+AND OR 
+BETWEEN
+IN
+
+SELECT title, release_year
+FROM films
+WHERE release_year BETWEEN 1990 AND 2000
+	AND budget > 100000000
+-- Amend the query to include Spanish or French-language films
+	AND (language = 'Spanish' OR language = 'French');
