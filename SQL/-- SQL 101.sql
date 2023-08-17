@@ -34,9 +34,25 @@ AND OR
 BETWEEN
 IN
 
+-- Filtering on numbers using comparison and logical operators < > <= >= <> OR AND
+
 SELECT title, release_year
 FROM films
 WHERE release_year BETWEEN 1990 AND 2000
 	AND budget > 100000000
--- Amend the query to include Spanish or French-language films
 	AND (language = 'Spanish' OR language = 'French');
+
+
+-- Filtering for strings, keywords LIKE, NOT LIKE, IN - case sensitive
+-- LIKE searches for pattern - % (0,1,many characters) and _ (single character)
+-- NOT LIKE is the opposite
+
+-- Count the unique titles
+SELECT COUNT(DISTINCT title) AS nineties_english_films_for_teens
+FROM films
+-- Filter to release_years to between 1990 and 1999
+WHERE release_year BETWEEN 1990 AND 1999
+-- Filter to English-language films
+	AND language = ('English')
+-- Narrow it down to G, PG, and PG-13 certifications
+	AND certification IN ('G', 'PG', 'PG-13');
