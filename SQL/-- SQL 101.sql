@@ -56,3 +56,35 @@ WHERE release_year BETWEEN 1990 AND 1999
 	AND language = ('English')
 -- Narrow it down to G, PG, and PG-13 certifications
 	AND certification IN ('G', 'PG', 'PG-13');
+
+-- NULL values - missing values
+
+-- Count the number of x where X_field is missing
+
+SELECT COUNT(x)
+FROM people
+WHERE x_field IS NULL;
+
+-- Count the number of x where X_field is populated 
+
+SELECT COUNT(x)
+FROM people
+WHERE x_field IS NOT NULL;
+
+-- Summarising data using aggregate functions
+
+AVG()
+SUM()
+MIN() -- non-numerical and numerical
+MAX() -- non-numerical and numerical - alphabetical
+COUNT()
+
+-- Calculate the average gross of films that start with A
+SELECT AVG(gross) AS avg_gross_A
+FROM films
+WHERE title LIKE 'A%';
+
+-- Calculate the highest gross film released between 2000-2012
+SELECT MAX(gross) AS highest_gross
+FROM films
+WHERE release_year BETWEEN 2000 AND 2012
