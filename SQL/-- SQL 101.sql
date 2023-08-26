@@ -87,4 +87,41 @@ WHERE title LIKE 'A%';
 -- Calculate the highest gross film released between 2000-2012
 SELECT MAX(gross) AS highest_gross
 FROM films
-WHERE release_year BETWEEN 2000 AND 2012
+WHERE release_year BETWEEN 2000 AND 2012;
+
+
+-- Calculate the average budget rounded to the thousands
+SELECT ROUND(AVG(budget),-3) AS avg_budget_thousands
+FROM films;
+
+
+-- Aggregate functions (SUM etc) vs arithmetic (+, - / *)
+-- Aggregate functions perform their functions on columns, arithmetic perform their functions on rows
+
+SELECT (gross_film_rev - budget) AS proft
+FROM films;
+
+-- SQL expects that you want integers so (2/10) will return 0 as 10 goes into 2, 0 times
+
+
+
+-- TOPICS TO REVISE 
+-- arithmetic (integers vs non-integers)
+-- order of execution
+
+-- Keywords in this section
+
+SELECT
+FROM
+CREATE VIEW
+AS 
+DISTINCT
+COUNT()
+AND
+OR 
+BETWEEN 
+IN ('','')
+IS NOT 
+IS 
+NULL
+LIKE '%' '_'
