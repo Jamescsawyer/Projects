@@ -108,6 +108,7 @@ FROM films;
 -- TOPICS TO REVISE 
 -- arithmetic (integers vs non-integers)
 -- order of execution
+-- what are aggregate functions vs filters vs sorting functions vs comparison operators 
 
 -- Keywords in this section
 
@@ -125,3 +126,25 @@ IS NOT
 IS 
 NULL
 LIKE '%' '_'
+HAVING
+
+
+FROM WHERE GROUP BY HAVING SELECT ORDER BY LIMIT -- order of execution can't use alias with HAVING but can with ORDER BY 
+
+-- Find the release_year, country, and max_budget, then group and order by release_year and country
+SELECT 
+    release_year,
+    country,
+    MAX(budget) AS max_budget
+FROM films
+GROUP BY release_year, country
+ORDER BY release_year, country;
+
+-- WHERE filters indiivudal records and HAVING filters grouped records
+
+-- in what year(s) was the average film duration > 2 hours
+
+SELECT release_year, AVG(duration) AS avg_duration
+FROM films
+GROUP BY release_year 
+HAVING AVG(duration) > 2
