@@ -94,7 +94,6 @@ WHERE release_year BETWEEN 2000 AND 2012;
 SELECT ROUND(AVG(budget),-3) AS avg_budget_thousands
 FROM films;
 
-
 -- Aggregate functions (SUM etc) vs arithmetic (+, - / *)
 -- Aggregate functions perform their functions on columns, arithmetic perform their functions on rows
 
@@ -148,3 +147,17 @@ SELECT release_year, AVG(duration) AS avg_duration
 FROM films
 GROUP BY release_year 
 HAVING AVG(duration) > 2
+
+
+-- Joins - it's common to write the FROM first, then the INNER JOIN then the ON statement to match the tables on a certain field
+-- then the SELECT to choose the fields to return 
+
+-- When selecting columns that exist in both tables, you must use the table.column_name (otherwise you can just use the name)
+
+
+FROM table_1 AS t1
+INNER JOIN table_2 AS t2
+ON t1.column = t2.column --or USING() 
+
+-- Inner joins
+
