@@ -161,3 +161,4 @@ ON t1.column = t2.column --or USING()
 
 -- Inner joins
 
+-- Outer joins
