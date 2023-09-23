@@ -162,3 +162,14 @@ ON t1.column = t2.column --or USING()
 -- Inner joins
 
 -- Outer joins
+FROM table_1
+LEFT JOIN table_2
+ON field
+
+-- Means there will be null values from table_1 - it joins on the field and returns all the values in table_1 
+
+FROM table_1
+RIGHT JOIN table_2
+ON field
+
+-- Means there will be null 
