@@ -127,8 +127,15 @@ NULL
 LIKE '%' '_'
 HAVING
 
+-- order of execution
 
-FROM WHERE GROUP BY HAVING SELECT ORDER BY LIMIT -- order of execution can't use alias with HAVING but can with ORDER BY 
+FROM -- choose and join tables to get base data
+WHERE -- filters the base data
+GROUP BY -- aggregates (summarises) base data USED WITH COUNT(), MAX(), MIN(), SUM(), AVG() aggregate functions
+HAVING -- filters aggregated data (where clause for when you're using a group by)
+SELECT -- returns the columns and headings
+ORDER BY -- sorts the final data
+LIMIT -- limits the returned data to a row count
 
 -- Find the release_year, country, and max_budget, then group and order by release_year and country
 SELECT 
@@ -172,4 +179,9 @@ FROM table_1
 RIGHT JOIN table_2
 ON field
 
--- Means there will be null 
+-- Full outter
+
+https://www.w3schools.com/sql/sql_join.asp -- good visual for writing this up into jupyter
+
+--Cross join provides all possible pairings of the listed fields
+
