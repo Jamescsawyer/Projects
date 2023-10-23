@@ -185,3 +185,16 @@ https://www.w3schools.com/sql/sql_join.asp -- good visual for writing this up in
 
 --Cross join provides all possible pairings of the listed fields
 
+-- Not NULL statement = 
+
+SELECT
+    c.name AS name,
+    life_expectancy,
+    p.year AS year,
+    c.region
+FROM countries as c
+INNER JOIN populations as p
+ON c.code = p.country_code
+WHERE (p.year = '2010' AND life_expectancy IS NOT NULL)
+ORDER BY life_expectancy DESC
+LIMIT 5;
